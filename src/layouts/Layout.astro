@@ -1,0 +1,74 @@
+---
+// Layout.astro - Main Cyberpunk Layout with SEO, OpenGraph and Meta tags
+import '../styles/global.css';
+import { profile } from '../data/profile';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${profile.fullName} | Consultor SAP S/4HANA & Especialista en IA`,
+  description = profile.pitch
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://edwinflores19.github.io');
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.fullName} />
+    <meta name="keywords" content="Edwin Flores, Edwin Flores Sanchez, Consultor SAP, SAP S/4HANA, SAP MM, SAP PS, SAP FICO, Clean Core, Inteligencia Artificial, Agentes IA, Claude Anthropic, Python, SEIDOR, USIL" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/assets/perfil.jpg" />
+
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/assets/perfil.jpg" />
+
+    <!-- JSON-LD Structured Data for Google -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": profile.fullName,
+      "alternateName": profile.name,
+      "jobTitle": profile.title,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SEIDOR Consulting"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad San Ignacio de Loyola (USIL)"
+      },
+      "url": "https://edwinflores19.github.io",
+      "sameAs": [
+        profile.linkedin,
+        profile.github
+      ]
+    })} />
+  </head>
+  <body class="bg-deep-obsidian text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-white relative">
+    <slot />
+  </body>
+</html>

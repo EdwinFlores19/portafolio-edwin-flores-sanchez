@@ -1,0 +1,145 @@
+---
+// Navbar.astro - Floating Cyberpunk Glassmorphic Header
+import { profile } from '../data/profile';
+---
+
+<header class="fixed top-3 sm:top-5 inset-x-0 z-50 px-3 sm:px-6 max-w-7xl mx-auto pointer-events-none">
+  <div class="pointer-events-auto glass-panel rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border border-cyan-500/20 shadow-neon-cyan/20 backdrop-blur-xl transition-all duration-300">
+    
+    <!-- Brand / Name with Cyber Accent -->
+    <a href="#home" class="flex items-center gap-2.5 group">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 p-[1.5px] group-hover:shadow-neon-cyan transition-all duration-300">
+        <div class="w-full h-full bg-deep-obsidian rounded-[10px] flex items-center justify-center font-mono font-black text-cyan-400 group-hover:scale-105 transition-transform text-sm">
+          E
+        </div>
+      </div>
+      <div>
+        <span class="font-extrabold tracking-wider text-sm sm:text-base text-white group-hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-mono">
+          EDWIN.FS
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 text-[10px] text-cyan-400/80 font-mono tracking-tighter">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SAP S/4HANA & AI
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-semibold text-slate-300 font-mono">
+      <a href="#home" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#inicio</a>
+      <a href="#bridge" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#puente-ia</a>
+      <a href="#projects" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#proyectos</a>
+      <a href="#experience" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#experiencia</a>
+      <a href="#skills" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#skills</a>
+      <a href="#certifications" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#certificaciones</a>
+      <a href="#human" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#humano</a>
+      <a href="#contact" class="px-3 py-1.5 rounded-full hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">#contacto</a>
+    </nav>
+
+    <!-- Quick CTA & Terminal Trigger -->
+    <div class="flex items-center gap-2">
+      <!-- Terminal Button -->
+      <button
+        id="toggle-terminal-btn"
+        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-900/60 hover:shadow-neon-cyan transition-all active:scale-95"
+        title="Abrir Terminal interactivo EdwinOS"
+      >
+        <span class="text-emerald-400 animate-pulse">>_</span> EdwinOS
+      </button>
+
+      <!-- Direct WhatsApp Action Button -->
+      <a
+        href={profile.whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-white shadow-neon-cyan transition-all active:scale-95 duration-200 hover:-translate-y-0.5"
+      >
+        <span>Contactar</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        id="mobile-menu-toggle"
+        class="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+        aria-label="Abrir Menú"
+      >
+        <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Drawer Dropdown -->
+  <div
+    id="mobile-drawer"
+    class="pointer-events-auto lg:hidden hidden mt-2 glass-panel rounded-2xl p-4 border border-cyan-500/20 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-top-2 duration-200"
+  >
+    <div class="flex flex-col gap-2 font-mono text-sm">
+      <a href="#home" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#inicio</a>
+      <a href="#bridge" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#puente-ia</a>
+      <a href="#projects" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#proyectos (RIA & CapeSync)</a>
+      <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#experiencia (Seidor & Clientes)</a>
+      <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#skills (SAP & AI Tools)</a>
+      <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#certificaciones</a>
+      <a href="#human" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#humano (Danza & Voluntariado)</a>
+      <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10">#contacto</a>
+      
+      <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+        <button
+          id="mobile-terminal-trigger"
+          class="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono font-bold text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 w-full justify-center"
+        >
+          <span>>_ Abrir Consola EdwinOS</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const hamburger = document.getElementById('hamburger-icon');
+  const close = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    const isOpen = !drawer?.classList.contains('hidden');
+    if (isOpen) {
+      drawer?.classList.add('hidden');
+      hamburger?.classList.remove('hidden');
+      close?.classList.add('hidden');
+    } else {
+      drawer?.classList.remove('hidden');
+      hamburger?.classList.add('hidden');
+      close?.classList.remove('hidden');
+    }
+  }
+
+  toggleBtn?.addEventListener('click', toggleMenu);
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer?.classList.add('hidden');
+      hamburger?.classList.remove('hidden');
+      close?.classList.add('hidden');
+    });
+  });
+
+  // Terminal triggers
+  const termBtn = document.getElementById('toggle-terminal-btn');
+  const mobileTermBtn = document.getElementById('mobile-terminal-trigger');
+  function openTerminal() {
+    window.dispatchEvent(new CustomEvent('toggle-edwin-terminal'));
+  }
+  termBtn?.addEventListener('click', openTerminal);
+  mobileTermBtn?.addEventListener('click', openTerminal);
+</script>

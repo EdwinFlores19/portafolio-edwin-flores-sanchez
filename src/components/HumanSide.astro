@@ -1,0 +1,89 @@
+---
+// HumanSide.astro - Más Allá del Código: Arte, Danza, Voluntariado y Liderazgo
+import { humanSideItems } from '../data/humanSide';
+---
+
+<section id="human" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto space-y-12">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-500/40 text-cyan-300 text-xs font-mono tracking-widest uppercase shadow-neon-cyan/20">
+        <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+        <span>Liderazgo, Cultura & Vocación Social</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
+        Más Allá del <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-400">Código</span>
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300/80 leading-relaxed font-normal">
+        La ingeniería de sistemas y la consultoría estratégica se enriquecen cuando se combinan con la sensibilidad del arte escénico, la disciplina colectiva y el compromiso con la comunidad.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {humanSideItems.map((item, idx) => (
+        <div class="glass-panel glass-panel-hover rounded-3xl overflow-hidden border border-white/10 hover:border-pink-500/40 transition-all duration-300 flex flex-col justify-between group">
+          
+          <div class="space-y-4">
+            <!-- Image if available -->
+            {item.image && (
+              <div class="relative h-56 w-full overflow-hidden bg-slate-950">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-deep-obsidian via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/80 text-pink-300 border border-pink-500/40 backdrop-blur-md uppercase">
+                    {item.category}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            <!-- Text Content -->
+            <div class={`p-6 ${item.image ? 'pt-0' : 'pt-6'} space-y-3`}>
+              {!item.image && (
+                <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/80 text-cyan-300 border border-cyan-500/40 inline-block uppercase">
+                  {item.category}
+                </span>
+              )}
+              
+              <h3 class="text-xl font-black text-white font-display group-hover:text-pink-300 transition-colors">
+                {item.title}
+              </h3>
+              <span class="text-xs font-mono text-slate-400 block -mt-1 font-semibold">{item.subtitle}</span>
+
+              <p class="text-xs text-slate-300 leading-relaxed font-normal">
+                {item.description}
+              </p>
+
+              <!-- Highlights list -->
+              <ul class="space-y-1.5 text-xs text-slate-300/80 font-mono pt-2">
+                {item.highlights.map(h => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-pink-400">▹</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Quote -->
+          {item.quote && (
+            <div class="p-6 pt-0">
+              <blockquote class="p-3.5 rounded-2xl bg-white/[0.02] border border-white/10 font-mono text-[11px] text-slate-300 italic">
+                "{item.quote}"
+              </blockquote>
+            </div>
+          )}
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f3ff" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#bc13fe" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00f3ff" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  <!-- Background Obsidian Hexagon -->
+  <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#05070e" stroke="url(#cyber-grad)" stroke-width="4" filter="url(#glow)"/>
+  <!-- Central Letter E in Futuristic Mono -->
+  <text x="50" y="65" font-family="'JetBrains Mono', monospace" font-size="44" font-weight="900" fill="#00f3ff" text-anchor="middle">E</text>
+  <!-- Tiny Accent Dot -->
+  <circle cx="70" cy="35" r="4" fill="#F0AB00"/>
+</svg>

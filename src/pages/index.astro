@@ -1,0 +1,44 @@
+---
+// index.astro - Landing Page for Edwin Flores Portfolio System
+import Layout from '../layouts/Layout.astro';
+import BackgroundCanvas from '../components/BackgroundCanvas.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import AiShowcaseBanner from '../components/AiShowcaseBanner.astro';
+import SapAiBridge from '../components/SapAiBridge.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import TechStackMatrix from '../components/TechStackMatrix.astro';
+import CertificationsVault from '../components/CertificationsVault.astro';
+import HumanSide from '../components/HumanSide.astro';
+import ContactSection from '../components/ContactSection.astro';
+import InteractiveTerminal from '../components/InteractiveTerminal.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <!-- Interactive 60 FPS Particle Constellation Canvas -->
+  <BackgroundCanvas />
+
+  <!-- Floating Cyber Navigation Bar -->
+  <Navbar />
+
+  <!-- Main Content Flow -->
+  <main class="relative z-10">
+    <Hero />
+    <AiShowcaseBanner />
+    <SapAiBridge />
+    <ProjectsSection />
+    <ExperienceTimeline />
+    <TechStackMatrix />
+    <CertificationsVault />
+    <HumanSide />
+    <ContactSection />
+  </main>
+
+  <!-- Interactive Terminal Console (Floating & Modal) -->
+  <InteractiveTerminal />
+
+  <!-- Footer with Telemetry -->
+  <Footer />
+</Layout>

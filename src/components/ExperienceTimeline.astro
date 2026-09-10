@@ -1,0 +1,188 @@
+---
+// ExperienceTimeline.astro - Interactive Enterprise Career Timeline with 17+ Projects
+import { experiences } from '../data/experience';
+
+const seidor = experiences[0];
+const unjfsc = experiences[1];
+---
+
+<section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto space-y-12">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="space-y-3 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-500/40 text-cyan-300 text-xs font-mono tracking-widest uppercase shadow-neon-cyan/20">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>Trayectoria & Proyectos Corporativos</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
+          Experiencia <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">Profesional</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300/80 font-normal">
+          Más de 2 años en SEIDOR Consulting participando activamente en más de 17 implementaciones, upgrades y rollouts para líderes en minería, salud, aviación, banca y consumo masivo.
+        </p>
+      </div>
+
+      <!-- Quick Stats Tag -->
+      <div class="glass-panel rounded-2xl p-4 border border-cyan-500/30 flex items-center gap-4 font-mono">
+        <div>
+          <span class="block text-2xl font-black text-cyan-400">+17</span>
+          <span class="block text-[10px] text-slate-400 uppercase">Proyectos Cliente</span>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <span class="block text-2xl font-black text-purple-400">100%</span>
+          <span class="block text-[10px] text-slate-400 uppercase">Entregables Cumplidos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Company Spotlight: SEIDOR Consulting -->
+    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/40 shadow-2xl relative overflow-hidden">
+      
+      <!-- Ambient Glow -->
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <!-- Company Header -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 p-[2px] shadow-neon-cyan/30">
+            <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-mono font-black text-cyan-400 text-xl">
+              S
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-xl sm:text-2xl font-black text-white font-display">{seidor.company}</h3>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+                Puesto Actual
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-cyan-300 font-mono mt-0.5">{seidor.roleTitle}</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-slate-400">
+          <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.period}</span>
+          <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.location}</span>
+        </div>
+      </div>
+
+      <!-- Filter by Industry Pills -->
+      <div class="py-6 flex flex-wrap items-center gap-2 font-mono text-xs" id="exp-filters">
+        <span class="text-slate-400 mr-2 text-[11px] uppercase tracking-wider">Filtrar por Industria:</span>
+        <button data-industry="all" class="exp-filter-btn active px-3 py-1 rounded-lg bg-cyan-400 text-slate-950 font-bold">Todas</button>
+        <button data-industry="Salud" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Salud (Clínica Int.)</button>
+        <button data-industry="Minería" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Minería (Antamina, Minsur, Stracon, Zafranal)</button>
+        <button data-industry="Financiero" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Financiero (NUAM)</button>
+        <button data-industry="Consumo Masivo" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Consumo Masivo (ISM, Rokys, Ecuajugos)</button>
+        <button data-industry="Aviación" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Aviación (Talma)</button>
+      </div>
+
+      <!-- Projects Grid Inside Seidor -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="experience-cards-grid">
+        {seidor.projects.map((proj, idx) => (
+          <div
+            class="exp-project-card glass-panel rounded-2xl p-5 border border-white/10 hover:border-cyan-400/40 transition-all duration-300 flex flex-col justify-between space-y-4 group"
+            data-industry={proj.industry}
+          >
+            <div class="space-y-3">
+              <!-- Top Row: Client & Industry Badge -->
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold bg-white/5 text-cyan-300 border border-cyan-500/30">
+                  {proj.industry}
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">{proj.period}</span>
+              </div>
+
+              <!-- Client Title & Role -->
+              <div>
+                <h4 class="text-lg font-black text-white font-display group-hover:text-cyan-300 transition-colors">
+                  {proj.client}
+                </h4>
+                <p class="text-xs font-mono font-bold text-slate-300 mt-0.5">{proj.role}</p>
+              </div>
+
+              <!-- Impact Highlight Badge -->
+              {proj.impactHighlight && (
+                <div class="p-2.5 rounded-xl bg-gradient-to-r from-purple-950/40 to-cyan-950/40 border border-purple-500/30 font-mono text-[11px] text-purple-200">
+                  ⚡ {proj.impactHighlight}
+                </div>
+              )}
+
+              <!-- Description list -->
+              <ul class="space-y-1.5 text-xs text-slate-300/80 leading-relaxed">
+                {proj.description.map(d => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-cyan-400 mt-0.5">▪</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Bottom Modules & Tech -->
+            <div class="pt-3 border-t border-white/10 flex flex-wrap gap-1">
+              {proj.modules.map(m => (
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-cyan-950/50 text-cyan-300 border border-cyan-800/40">
+                  {m}
+                </span>
+              ))}
+              {proj.techStack.map(t => (
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Previous Experience: UNJFSC -->
+    <div class="glass-panel rounded-3xl p-6 sm:p-7 border border-white/10">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
+        <div>
+          <h3 class="text-lg font-bold text-white font-display">{unjfsc.company}</h3>
+          <p class="text-xs text-slate-400 font-mono">{unjfsc.roleTitle} • {unjfsc.location}</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-xl bg-white/5 self-start sm:self-auto">{unjfsc.period}</span>
+      </div>
+      <p class="text-xs text-slate-300 pt-4 leading-relaxed max-w-4xl">
+        {unjfsc.summary}
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Filter Experience by Industry
+  const expBtns = document.querySelectorAll('.exp-filter-btn');
+  const expCards = document.querySelectorAll('.exp-project-card');
+
+  expBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      expBtns.forEach(b => {
+        b.classList.remove('bg-cyan-400', 'text-slate-950', 'font-bold', 'active');
+        b.classList.add('glass-panel', 'text-slate-300');
+      });
+      btn.classList.remove('glass-panel', 'text-slate-300');
+      btn.classList.add('bg-cyan-400', 'text-slate-950', 'font-bold', 'active');
+
+      const ind = btn.getAttribute('data-industry');
+
+      expCards.forEach(card => {
+        const cardInd = card.getAttribute('data-industry');
+        if (ind === 'all' || cardInd === ind) {
+          (card as HTMLElement).style.display = 'flex';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-blue: #3b82f6;
+  --sap-gold: #F0AB00;
+  --deep-bg: #05070e;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--deep-bg);
+  color: #f1f5f9;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: rgba(0, 243, 255, 0.25);
+  selection-color: #ffffff;
+}
+
+::selection {
+  background: rgba(0, 243, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Cyber Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f3ff 0%, #7c3aed 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8 0%, #c084fc 100%);
+}
+
+/* Futuristic Utilities */
+.glass-panel {
+  background: rgba(10, 16, 30, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 243, 255, 0.4);
+  box-shadow: 0 12px 40px -10px rgba(0, 243, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 10%, #00f3ff 60%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #ffffff 10%, #bc13fe 60%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffffff 10%, #F0AB00 60%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+}
+
+.glow-box-cyan {
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.35);
+}
+
+.glow-box-purple {
+  box-shadow: 0 0 25px rgba(188, 19, 254, 0.35);
+}
+
+.glow-box-gold {
+  box-shadow: 0 0 25px rgba(240, 171, 0, 0.35);
+}
+
+/* Radar Scanline effect */
+.radar-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Card 3D tilt */
+.tilt-element {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}

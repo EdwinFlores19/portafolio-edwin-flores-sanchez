@@ -68,12 +68,14 @@ import { terminalCommands } from '../data/terminalCommands';
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="whoami">whoami</button>
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="sap">sap</button>
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="ai">ai</button>
+      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="cleancore">cleancore</button>
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="projects">projects</button>
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="experience">experience</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="certs">certs</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="hire">hire</button>
+      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="hire">hire ⭐</button>
+      <button class="term-chip px-2.5 py-1 rounded-md bg-amber-950/40 hover:bg-amber-900/60 text-amber-300 border border-amber-500/40 transition-all" data-cmd="joke">joke 😄</button>
+      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="coffee">coffee ☕</button>
       <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="contact">contact</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/40 transition-all" data-cmd="matrix">matrix</button>
+      <button class="term-chip px-2.5 py-1 rounded-md bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/40 transition-all" data-cmd="matrix">matrix 🕶️</button>
     </div>
 
     <!-- Input Line -->
@@ -153,8 +155,42 @@ import { terminalCommands } from '../data/terminalCommands';
   });
 
   function executeCommand(rawCmd: string) {
-    const cmd = rawCmd.trim().toLowerCase();
+    let cmd = rawCmd.trim().toLowerCase();
     if (!cmd) return;
+
+    // Normalizar acentos y caracteres especiales
+    const normalized = cmd.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    // Mapeo inteligente de sinónimos y atajos
+    const aliases: Record<string, string> = {
+      'chiste': 'joke',
+      'broma': 'joke',
+      'bromas': 'joke',
+      'jokes': 'joke',
+      'cafe': 'coffee',
+      'cafes': 'coffee',
+      'danza': 'dance',
+      'danzas': 'dance',
+      'clean-core': 'cleancore',
+      'clean_core': 'cleancore',
+      'clean': 'cleancore',
+      'core': 'cleancore',
+      'certificaciones': 'certs',
+      'certificados': 'certs',
+      'cert': 'certs',
+      'experiencia': 'experience',
+      'proyectos': 'projects',
+      'proyecto': 'projects',
+      'contacto': 'contact',
+      'contratar': 'hire',
+      'salario': 'salary',
+      'sueldo': 'salary',
+      'tarifa': 'salary',
+      'ayuda': 'help',
+      'cls': 'clear'
+    };
+
+    const targetKey = aliases[cmd] || aliases[normalized] || cmd;
 
     playCyberBeep(900, 0.04);
 
@@ -163,20 +199,20 @@ import { terminalCommands } from '../data/terminalCommands';
     userLine.innerHTML = `<span class="text-emerald-400 font-bold">>_</span> <span class="font-bold">${cmd}</span>`;
     historyEl?.appendChild(userLine);
 
-    if (cmd === 'clear') {
+    if (targetKey === 'clear') {
       if (historyEl) historyEl.innerHTML = '';
       if (input) input.value = '';
       return;
     }
 
     const respDiv = document.createElement('div');
-    respDiv.className = 'text-slate-200 whitespace-pre-wrap pl-4 border-l-2 border-cyan-500/30 font-mono py-1';
+    respDiv.className = 'text-slate-200 whitespace-pre-wrap pl-4 border-l-2 border-cyan-500/30 font-mono py-1 leading-relaxed';
 
-    if (terminalCommands[cmd]) {
-      const response = terminalCommands[cmd];
+    if (terminalCommands[targetKey]) {
+      const response = terminalCommands[targetKey];
       respDiv.textContent = typeof response === 'string' ? response : response.output;
     } else {
-      respDiv.innerHTML = `<span class="text-rose-400">Comando no reconocido: '${cmd}'.</span>\nEscribe <strong class="text-cyan-300">'help'</strong> para ver la lista de comandos disponibles.`;
+      respDiv.innerHTML = `<span class="text-rose-400 font-semibold">Comando no reconocido: '${cmd}'.</span>\nEscribe <strong class="text-cyan-300">'help'</strong> para explorar los módulos disponibles o utiliza los botones de acceso rápido.`;
     }
 
     historyEl?.appendChild(respDiv);

@@ -1,6 +1,7 @@
 ---
 // HumanSide.astro - Más Allá del Código: Arte, Danza, Voluntariado y Liderazgo
 import { humanSideItems } from '../data/humanSide';
+import { getAssetUrl } from '../utils/assets';
 ---
 
 <section id="human" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
@@ -30,7 +31,7 @@ import { humanSideItems } from '../data/humanSide';
             {item.image && (
               <div class="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-950">
                 <img
-                  src={item.image}
+                  src={getAssetUrl(item.image)}
                   alt={item.title}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
                 />

@@ -130,18 +130,29 @@ npm run preview
 
 ---
 
-## 🌐 Despliegue en GitHub Pages
+## 🌐 Despliegue Automatizado en GitHub Pages (CI/CD)
 
-1. Inicializa el repositorio si no lo has hecho:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: Lanzamiento Sistema de Portafolio Profesional v2.6.0"
-   git branch -M main
-   git remote add origin https://github.com/EdwinFlores19/PORTAFOLIO-EDWIN-FLORES.git
-   git push -u origin main
-   ```
-2. En GitHub ve a **Settings > Pages > Source** y selecciona **GitHub Actions** (Astro incluye soporte nativo con el workflow de Astro).
+El proyecto cuenta con un flujo de integración y entrega continua (CI/CD) completamente automatizado mediante **GitHub Actions** (`.github/workflows/deploy.yml`). Cada vez que realices un `git push` a la rama `main`, tu portafolio se compilará y desplegará en segundos.
+
+### ⚙️ Paso Único de Configuración en GitHub:
+1. Ingresa a tu repositorio en GitHub: [https://github.com/EdwinFlores19/PORTAFOLIO-EDWIN-FLORES](https://github.com/EdwinFlores19/PORTAFOLIO-EDWIN-FLORES)
+2. Haz clic en la pestaña **Settings** (Configuración).
+3. En el menú lateral izquierdo, haz clic en **Pages**.
+4. En la sección **Build and deployment**:
+   - En **Source**, abre el menú desplegable y selecciona **`GitHub Actions`** (NO "Deploy from a branch").
+5. ¡Listo! A partir de ese momento, cualquier push a `main` disparará el despliegue automático. Tu sitio estará disponible en:
+   👉 **`https://edwinflores19.github.io/PORTAFOLIO-EDWIN-FLORES/`**
+
+---
+
+### 🛡️ Optimizaciones Críticas Implementadas para GitHub Pages:
+- **Archivo `.nojekyll` Automático**: Evita que el motor Jekyll de GitHub omita carpetas con guion bajo (`_astro/`), asegurando que todos los archivos CSS y JS carguen al 100%.
+- **Resolución Dinámica de Base Path (`getAssetUrl`)**:
+  - En **Desarrollo Local** (`npm run dev`), la base es `/`.
+  - En **GitHub Pages** (`CI/CD`), la base se ajusta dinámicamente a `/PORTAFOLIO-EDWIN-FLORES/`.
+  - Si en el futuro conectas un **Dominio Personalizado** (ej. `edwinflores.dev`), la base vuelve automáticamente a `/` sin modificar una sola línea de código.
+- **Metatags y OpenGraph Absolutos**: Generación de URLs canónicas completas y previsualización enriquecida con imagen de perfil para LinkedIn, WhatsApp y Twitter Cards.
+- **Workflow Oficial de Astro**: Emplea `actions/configure-pages@v5`, `actions/upload-pages-artifact@v3` y `actions/deploy-pages@v4` con permisos mínimos y caché de dependencias npm.
 
 ---
 

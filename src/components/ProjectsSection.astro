@@ -1,6 +1,7 @@
 ---
 // ProjectsSection.astro - Showcase for RIA (Capstone 1st Place) and the 6 Selected Projects
 import { flagshipProject, projects } from '../data/projects';
+import { getAssetUrl } from '../utils/assets';
 ---
 
 <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
@@ -48,7 +49,7 @@ import { flagshipProject, projects } from '../data/projects';
         <!-- Left: Real Photo / Screenshot -->
         <div class="lg:col-span-6 relative h-72 sm:h-96 lg:h-full min-h-[320px] overflow-hidden bg-slate-950">
           <img
-            src={flagshipProject.image}
+            src={getAssetUrl(flagshipProject.image)}
             alt={flagshipProject.title}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
           />

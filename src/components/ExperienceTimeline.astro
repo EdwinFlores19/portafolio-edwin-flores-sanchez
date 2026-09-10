@@ -73,11 +73,26 @@ const unjfsc = experiences[1];
       <div class="py-6 flex flex-wrap items-center gap-2.5 font-mono text-xs sm:text-sm" id="exp-filters">
         <span class="text-slate-300 mr-2 text-xs uppercase tracking-wider font-bold">Filtrar por Industria:</span>
         <button data-industry="all" class="exp-filter-btn active px-3.5 py-1.5 rounded-xl bg-cyan-400 text-slate-950 font-bold shadow-neon-cyan transition-all">Todas</button>
-        <button data-industry="Salud" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Salud (Clínica Int.)</button>
-        <button data-industry="Minería" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Minería (Antamina, Minsur, Stracon, Zafranal)</button>
-        <button data-industry="Financiero" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Financiero (NUAM)</button>
-        <button data-industry="Consumo Masivo" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Consumo Masivo (ISM, Rokys, Ecuajugos)</button>
-        <button data-industry="Aviación" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Aviación (Talma)</button>
+        <button data-industry="Salud" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">
+          <span class="sm:hidden">Salud</span>
+          <span class="hidden sm:inline">Salud (Clínica Int.)</span>
+        </button>
+        <button data-industry="Minería" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">
+          <span class="sm:hidden">Minería</span>
+          <span class="hidden sm:inline">Minería (Antamina, Minsur, Stracon, Zafranal)</span>
+        </button>
+        <button data-industry="Financiero" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">
+          <span class="sm:hidden">Financiero</span>
+          <span class="hidden sm:inline">Financiero (NUAM)</span>
+        </button>
+        <button data-industry="Consumo Masivo" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">
+          <span class="sm:hidden">Consumo</span>
+          <span class="hidden sm:inline">Consumo Masivo (ISM, Rokys, Ecuajugos)</span>
+        </button>
+        <button data-industry="Aviación" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">
+          <span class="sm:hidden">Aviación</span>
+          <span class="hidden sm:inline">Aviación (Talma)</span>
+        </button>
       </div>
 
       <!-- Projects Grid Inside Seidor -->

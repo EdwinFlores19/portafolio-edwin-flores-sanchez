@@ -4,10 +4,10 @@ import { terminalCommands } from '../data/terminalCommands';
 ---
 
 <!-- Fixed Floating Toggle Button (Bottom-Right) -->
-<div class="fixed bottom-5 right-5 z-40">
+<div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
   <button
     id="terminal-floating-trigger"
-    class="px-4 py-2.5 rounded-2xl glass-panel border border-cyan-400/50 text-cyan-300 font-mono text-xs font-bold shadow-neon-cyan/40 hover:bg-cyan-950/70 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 group backdrop-blur-2xl"
+    class="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl glass-panel border border-cyan-400/50 text-cyan-300 font-mono text-xs font-bold shadow-neon-cyan/40 hover:bg-cyan-950/70 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 group backdrop-blur-2xl"
     title="Abrir Consola Terminal EdwinOS"
   >
     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -20,11 +20,11 @@ import { terminalCommands } from '../data/terminalCommands';
 <!-- Modal / Drawer Terminal Window -->
 <div
   id="edwin-terminal-modal"
-  class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md hidden"
+  class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-black/85 backdrop-blur-md hidden"
   aria-modal="true"
   role="dialog"
 >
-  <div class="glass-panel rounded-2xl sm:rounded-3xl border border-cyan-500/50 max-w-3xl w-full h-[540px] max-h-[88vh] flex flex-col shadow-2xl relative overflow-hidden bg-slate-950/95 font-mono">
+  <div class="glass-panel rounded-2xl sm:rounded-3xl border border-cyan-500/50 max-w-3xl w-full h-[90vh] sm:h-[540px] max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden bg-slate-950/95 font-mono">
     
     <!-- Top Bar: Window Controls & Title -->
     <div class="px-4 py-3 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">

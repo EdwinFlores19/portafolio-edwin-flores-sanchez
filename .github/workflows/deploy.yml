@@ -40,25 +40,30 @@ jobs:
             exit 1
           fi
 
-      - name: Setup Node.js (v20)
+      - name: Setup Node.js (v22 LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: package-lock.json
 
       - name: Setup GitHub Pages Environment
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Install Dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
       - name: Build with Astro
         run: |
+          ORIGIN="${{ steps.pages.outputs.origin || 'https://edwinflores19.github.io' }}"
+          BASE="${{ steps.pages.outputs.base_path || format('/{0}/', github.event.repository.name) }}"
+          echo "Building site with origin: $ORIGIN and base: $BASE"
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+            --site "$ORIGIN" \
+            --base "$BASE"
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

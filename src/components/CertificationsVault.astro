@@ -15,7 +15,7 @@ import { certifications } from '../data/certifications';
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
         Bóveda de <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-purple-400">Certificaciones</span>
       </h2>
-      <p class="text-xs sm:text-sm text-slate-300/80 leading-relaxed font-normal">
+      <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
         Certificaciones y cursos oficiales de SAP Learning, Google Cloud Skills, especializaciones en Anthropic Claude y distinciones académicas de la USIL.
       </p>
     </div>
@@ -28,31 +28,31 @@ import { certifications } from '../data/certifications';
           <div class="space-y-4">
             <!-- Header Row: Issuer Badge & Date -->
             <div class="flex items-center justify-between">
-              <span class={`px-3 py-1 rounded-full text-[10px] font-mono font-black uppercase tracking-wider ${
-                cert.issuer === 'SAP' ? 'bg-amber-500/20 text-amber-300 border border-amber-400/40' :
-                cert.issuer === 'Anthropic' ? 'bg-orange-500/20 text-orange-300 border border-orange-400/40' :
-                cert.issuer === 'Google' ? 'bg-blue-500/20 text-blue-300 border border-blue-400/40' :
-                'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40'
+              <span class={`px-3.5 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider ${
+                cert.issuer === 'SAP' ? 'bg-amber-500/25 text-amber-300 border border-amber-400/50' :
+                cert.issuer === 'Anthropic' ? 'bg-orange-500/25 text-orange-300 border border-orange-400/50' :
+                cert.issuer === 'Google' ? 'bg-blue-500/25 text-blue-300 border border-blue-400/50' :
+                'bg-cyan-500/25 text-cyan-300 border border-cyan-400/50'
               }`}>
                 {cert.issuer} • {cert.category}
               </span>
-              <span class="text-[11px] font-mono text-slate-400">{cert.issueDate}</span>
+              <span class="text-xs font-mono text-slate-300 font-semibold">{cert.issueDate}</span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-lg font-black text-white font-display group-hover:text-cyan-300 transition-colors leading-snug">
+            <h3 class="text-xl font-black text-white font-display group-hover:text-cyan-300 transition-colors leading-snug">
               {cert.title}
             </h3>
 
             <!-- Description -->
-            <p class="text-xs text-slate-300/80 leading-relaxed font-normal">
+            <p class="text-sm text-slate-200 leading-relaxed font-normal">
               {cert.description}
             </p>
 
             <!-- Skills chips -->
             <div class="flex flex-wrap gap-1.5 pt-2">
               {cert.skillsAcquired.map(skill => (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10">
+                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-slate-200 border border-white/10 font-medium">
                   {skill}
                 </span>
               ))}
@@ -60,10 +60,10 @@ import { certifications } from '../data/certifications';
           </div>
 
           <!-- Bottom: Badge Code & Official Link -->
-          <div class="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs sm:text-sm">
             {cert.badgeCode && (
-              <span class="text-[10px] text-slate-400">
-                ID: <span class="text-cyan-400">{cert.badgeCode}</span>
+              <span class="text-xs text-slate-300">
+                ID: <span class="text-cyan-400 font-bold">{cert.badgeCode}</span>
               </span>
             )}
             {cert.credentialUrl ? (
@@ -74,11 +74,11 @@ import { certifications } from '../data/certifications';
                 class="inline-flex items-center gap-1.5 text-cyan-400 hover:text-white font-bold transition-colors ml-auto"
               >
                 <span>Verificar Oficial</span>
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
               </a>
             ) : (
-              <span class="text-[10px] text-emerald-400 ml-auto flex items-center gap-1">
-                <span>✓</span> Verificado
+              <span class="text-xs text-emerald-400 ml-auto flex items-center gap-1 font-bold">
+                <span>✓</span> Acreditado
               </span>
             )}
           </div>

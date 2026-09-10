@@ -19,103 +19,103 @@ const unjfsc = experiences[1];
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
           Experiencia <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">Profesional</span>
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300/80 font-normal">
+        <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
           Más de 2 años en SEIDOR Consulting participando activamente en más de 17 implementaciones, upgrades y rollouts para líderes en minería, salud, aviación, banca y consumo masivo.
         </p>
       </div>
 
       <!-- Quick Stats Tag -->
-      <div class="glass-panel rounded-2xl p-4 border border-cyan-500/30 flex items-center gap-4 font-mono">
+      <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-cyan-500/30 flex items-center gap-5 font-mono">
         <div>
-          <span class="block text-2xl font-black text-cyan-400">+17</span>
-          <span class="block text-[10px] text-slate-400 uppercase">Proyectos Cliente</span>
+          <span class="block text-2xl sm:text-3xl font-black text-cyan-400">+17</span>
+          <span class="block text-xs text-slate-300 uppercase font-semibold">Proyectos Cliente</span>
         </div>
-        <div class="w-px h-8 bg-white/10"></div>
+        <div class="w-px h-10 bg-white/15"></div>
         <div>
-          <span class="block text-2xl font-black text-purple-400">100%</span>
-          <span class="block text-[10px] text-slate-400 uppercase">Entregables Cumplidos</span>
+          <span class="block text-2xl sm:text-3xl font-black text-purple-400">100%</span>
+          <span class="block text-xs text-slate-300 uppercase font-semibold">Entregables Éxito</span>
         </div>
       </div>
     </div>
 
     <!-- Main Company Spotlight: SEIDOR Consulting -->
-    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/40 shadow-2xl relative overflow-hidden">
+    <div class="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-cyan-500/40 shadow-2xl relative overflow-hidden">
       
       <!-- Ambient Glow -->
       <div class="absolute -top-20 -right-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <!-- Company Header -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 pb-6 border-b border-white/10">
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 p-[2px] shadow-neon-cyan/30">
-            <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-mono font-black text-cyan-400 text-xl">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 p-[2px] shadow-neon-cyan/30 shrink-0">
+            <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-mono font-black text-cyan-400 text-2xl">
               S
             </div>
           </div>
           <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-xl sm:text-2xl font-black text-white font-display">{seidor.company}</h3>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <h3 class="text-2xl sm:text-3xl font-black text-white font-display">{seidor.company}</h3>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                 Puesto Actual
               </span>
             </div>
-            <p class="text-xs sm:text-sm text-cyan-300 font-mono mt-0.5">{seidor.roleTitle}</p>
+            <p class="text-sm sm:text-base text-cyan-300 font-mono mt-1 font-semibold">{seidor.roleTitle}</p>
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-slate-400">
-          <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.period}</span>
-          <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.location}</span>
+        <div class="flex flex-wrap items-center gap-2.5 font-mono text-xs sm:text-sm text-slate-300">
+          <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.period}</span>
+          <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10">{seidor.location}</span>
         </div>
       </div>
 
-      <!-- Filter by Industry Pills -->
-      <div class="py-6 flex flex-wrap items-center gap-2 font-mono text-xs" id="exp-filters">
-        <span class="text-slate-400 mr-2 text-[11px] uppercase tracking-wider">Filtrar por Industria:</span>
-        <button data-industry="all" class="exp-filter-btn active px-3 py-1 rounded-lg bg-cyan-400 text-slate-950 font-bold">Todas</button>
-        <button data-industry="Salud" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Salud (Clínica Int.)</button>
-        <button data-industry="Minería" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Minería (Antamina, Minsur, Stracon, Zafranal)</button>
-        <button data-industry="Financiero" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Financiero (NUAM)</button>
-        <button data-industry="Consumo Masivo" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Consumo Masivo (ISM, Rokys, Ecuajugos)</button>
-        <button data-industry="Aviación" class="exp-filter-btn px-3 py-1 rounded-lg glass-panel text-slate-300 hover:text-white">Aviación (Talma)</button>
+      <!-- Filter by Industry Pills (Enhanced readability) -->
+      <div class="py-6 flex flex-wrap items-center gap-2.5 font-mono text-xs sm:text-sm" id="exp-filters">
+        <span class="text-slate-300 mr-2 text-xs uppercase tracking-wider font-bold">Filtrar por Industria:</span>
+        <button data-industry="all" class="exp-filter-btn active px-3.5 py-1.5 rounded-xl bg-cyan-400 text-slate-950 font-bold shadow-neon-cyan transition-all">Todas</button>
+        <button data-industry="Salud" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Salud (Clínica Int.)</button>
+        <button data-industry="Minería" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Minería (Antamina, Minsur, Stracon, Zafranal)</button>
+        <button data-industry="Financiero" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Financiero (NUAM)</button>
+        <button data-industry="Consumo Masivo" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Consumo Masivo (ISM, Rokys, Ecuajugos)</button>
+        <button data-industry="Aviación" class="exp-filter-btn px-3.5 py-1.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold transition-all">Aviación (Talma)</button>
       </div>
 
       <!-- Projects Grid Inside Seidor -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="experience-cards-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="experience-cards-grid">
         {seidor.projects.map((proj, idx) => (
           <div
-            class="exp-project-card glass-panel rounded-2xl p-5 border border-white/10 hover:border-cyan-400/40 transition-all duration-300 flex flex-col justify-between space-y-4 group"
+            class="exp-project-card glass-panel rounded-2xl p-6 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between space-y-4 group"
             data-industry={proj.industry}
           >
-            <div class="space-y-3">
+            <div class="space-y-3.5">
               <!-- Top Row: Client & Industry Badge -->
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold bg-white/5 text-cyan-300 border border-cyan-500/30">
+                <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-white/5 text-cyan-300 border border-cyan-500/40 uppercase">
                   {proj.industry}
                 </span>
-                <span class="text-[10px] font-mono text-slate-400">{proj.period}</span>
+                <span class="text-xs font-mono text-slate-300 font-medium">{proj.period}</span>
               </div>
 
               <!-- Client Title & Role -->
               <div>
-                <h4 class="text-lg font-black text-white font-display group-hover:text-cyan-300 transition-colors">
+                <h4 class="text-xl font-black text-white font-display group-hover:text-cyan-300 transition-colors">
                   {proj.client}
                 </h4>
-                <p class="text-xs font-mono font-bold text-slate-300 mt-0.5">{proj.role}</p>
+                <p class="text-xs sm:text-sm font-mono font-bold text-slate-200 mt-0.5">{proj.role}</p>
               </div>
 
               <!-- Impact Highlight Badge -->
               {proj.impactHighlight && (
-                <div class="p-2.5 rounded-xl bg-gradient-to-r from-purple-950/40 to-cyan-950/40 border border-purple-500/30 font-mono text-[11px] text-purple-200">
+                <div class="p-3 rounded-xl bg-gradient-to-r from-purple-950/50 to-cyan-950/50 border border-purple-500/40 font-mono text-xs text-purple-200 font-semibold leading-relaxed">
                   ⚡ {proj.impactHighlight}
                 </div>
               )}
 
-              <!-- Description list -->
-              <ul class="space-y-1.5 text-xs text-slate-300/80 leading-relaxed">
+              <!-- Description list (Enlarged and high contrast) -->
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-200 leading-relaxed">
                 {proj.description.map(d => (
-                  <li class="flex items-start gap-1.5">
-                    <span class="text-cyan-400 mt-0.5">▪</span>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cyan-400 font-bold mt-0.5">▪</span>
                     <span>{d}</span>
                   </li>
                 ))}
@@ -123,14 +123,14 @@ const unjfsc = experiences[1];
             </div>
 
             <!-- Bottom Modules & Tech -->
-            <div class="pt-3 border-t border-white/10 flex flex-wrap gap-1">
+            <div class="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
               {proj.modules.map(m => (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-cyan-950/50 text-cyan-300 border border-cyan-800/40">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 font-semibold">
                   {m}
                 </span>
               ))}
               {proj.techStack.map(t => (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-white/5 text-slate-200 border border-white/10 font-medium">
                   {t}
                 </span>
               ))}
@@ -143,15 +143,15 @@ const unjfsc = experiences[1];
     </div>
 
     <!-- Previous Experience: UNJFSC -->
-    <div class="glass-panel rounded-3xl p-6 sm:p-7 border border-white/10">
+    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
         <div>
-          <h3 class="text-lg font-bold text-white font-display">{unjfsc.company}</h3>
-          <p class="text-xs text-slate-400 font-mono">{unjfsc.roleTitle} • {unjfsc.location}</p>
+          <h3 class="text-xl font-bold text-white font-display">{unjfsc.company}</h3>
+          <p class="text-sm text-slate-300 font-mono mt-0.5">{unjfsc.roleTitle} • {unjfsc.location}</p>
         </div>
-        <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-xl bg-white/5 self-start sm:self-auto">{unjfsc.period}</span>
+        <span class="text-xs sm:text-sm font-mono text-slate-300 px-3.5 py-1.5 rounded-xl bg-white/5 self-start sm:self-auto font-medium">{unjfsc.period}</span>
       </div>
-      <p class="text-xs text-slate-300 pt-4 leading-relaxed max-w-4xl">
+      <p class="text-sm text-slate-200 pt-4 leading-relaxed max-w-4xl font-normal">
         {unjfsc.summary}
       </p>
     </div>
@@ -168,9 +168,9 @@ const unjfsc = experiences[1];
     btn.addEventListener('click', () => {
       expBtns.forEach(b => {
         b.classList.remove('bg-cyan-400', 'text-slate-950', 'font-bold', 'active');
-        b.classList.add('glass-panel', 'text-slate-300');
+        b.classList.add('glass-panel', 'text-slate-200');
       });
-      btn.classList.remove('glass-panel', 'text-slate-300');
+      btn.classList.remove('glass-panel', 'text-slate-200');
       btn.classList.add('bg-cyan-400', 'text-slate-950', 'font-bold', 'active');
 
       const ind = btn.getAttribute('data-industry');

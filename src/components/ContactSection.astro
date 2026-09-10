@@ -15,7 +15,7 @@ import { profile } from '../data/profile';
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
         Iniciemos una <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">Conversación</span>
       </h2>
-      <p class="text-xs sm:text-sm text-slate-300/80 leading-relaxed font-normal">
+      <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
         ¿Buscas un consultor funcional SAP S/4HANA con visión técnica de vanguardia o deseas impulsar la automatización con IA en tu organización? Conéctate de inmediato.
       </p>
     </div>
@@ -31,18 +31,18 @@ import { profile } from '../data/profile';
           href={profile.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="glass-panel glass-panel-hover rounded-3xl p-6 border border-emerald-500/30 hover:border-emerald-400/80 block group shadow-emerald-500/10"
+          class="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 border border-emerald-500/40 hover:border-emerald-400/80 block group shadow-emerald-500/10"
         >
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform shrink-0">
+              <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
               </svg>
             </div>
             <div>
-              <span class="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest block">Respuesta Inmediata</span>
-              <h4 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">WhatsApp Directo</h4>
-              <span class="text-xs font-mono text-slate-300">{profile.phone}</span>
+              <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest block">Respuesta Inmediata</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">WhatsApp Directo</h4>
+              <span class="text-sm font-mono text-slate-200">{profile.phone}</span>
             </div>
           </div>
         </a>
@@ -50,18 +50,18 @@ import { profile } from '../data/profile';
         <!-- Email Direct Card -->
         <a
           href={`mailto:${profile.email}?subject=Oportunidad%20Profesional%20-%20Edwin%20Flores`}
-          class="glass-panel glass-panel-hover rounded-3xl p-6 border border-cyan-500/30 hover:border-cyan-400/80 block group shadow-neon-cyan/10"
+          class="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 border border-cyan-500/40 hover:border-cyan-400/80 block group shadow-neon-cyan/10"
         >
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shrink-0">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
             </div>
             <div>
-              <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest block">Correo Electrónico</span>
-              <h4 class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">Mensaje Corporativo</h4>
-              <span class="text-xs font-mono text-slate-300">{profile.email}</span>
+              <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest block">Correo Electrónico</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">Mensaje Corporativo</h4>
+              <span class="text-sm font-mono text-slate-200">{profile.email}</span>
             </div>
           </div>
         </a>
@@ -71,66 +71,66 @@ import { profile } from '../data/profile';
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="glass-panel glass-panel-hover rounded-3xl p-6 border border-blue-500/30 hover:border-blue-400/80 block group shadow-blue-500/10"
+          class="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 border border-blue-500/40 hover:border-blue-400/80 block group shadow-blue-500/10"
         >
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <div class="w-14 h-14 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform shrink-0">
+              <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </div>
             <div>
-              <span class="text-[10px] font-mono font-bold text-blue-400 uppercase tracking-widest block">Red Profesional</span>
-              <h4 class="text-base font-bold text-white group-hover:text-blue-300 transition-colors">LinkedIn</h4>
-              <span class="text-xs font-mono text-slate-300">Conectar en LinkedIn</span>
+              <span class="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest block">Red Profesional</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">LinkedIn</h4>
+              <span class="text-sm font-mono text-slate-200">Ver Perfil y Conectar</span>
             </div>
           </div>
         </a>
 
         <!-- Professional Reference Badge -->
-        <div class="glass-panel rounded-3xl p-5 border border-purple-500/30 space-y-2 font-mono text-xs">
-          <div class="flex items-center gap-2 text-purple-300 font-bold uppercase text-[10px]">
+        <div class="glass-panel rounded-3xl p-6 border border-purple-500/40 space-y-2.5 font-mono">
+          <div class="flex items-center gap-2 text-purple-300 font-bold uppercase text-xs">
             <span>📋</span> Referencia Profesional Directa
           </div>
-          <div class="text-white font-bold">{profile.references[0].name}</div>
-          <div class="text-slate-400 text-[11px]">{profile.references[0].role} • {profile.references[0].company}</div>
-          <div class="text-cyan-400 font-bold">{profile.references[0].phone}</div>
+          <div class="text-white text-base font-bold">{profile.references[0].name}</div>
+          <div class="text-slate-300 text-xs sm:text-sm">{profile.references[0].role} • {profile.references[0].company}</div>
+          <div class="text-cyan-400 font-bold text-sm">{profile.references[0].phone}</div>
         </div>
 
       </div>
 
       <!-- Right Column: Interactive Form (7 cols) -->
-      <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl relative">
+      <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10 shadow-2xl relative">
         
-        <form id="contact-form" class="space-y-4">
+        <form id="contact-form" class="space-y-5">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="space-y-1.5 font-mono text-xs">
-              <label for="name" class="text-slate-300 block">Tu Nombre / Empresa</label>
+            <div class="space-y-2 font-mono text-xs sm:text-sm">
+              <label for="name" class="text-slate-200 font-bold block">Tu Nombre / Empresa</label>
               <input
                 type="text"
                 id="name"
                 required
                 placeholder="Ej. Martín Vega (Recruiter)"
-                class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-xs transition-colors"
+                class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-sm transition-colors"
               />
             </div>
-            <div class="space-y-1.5 font-mono text-xs">
-              <label for="email" class="text-slate-300 block">Tu Correo Electrónico</label>
+            <div class="space-y-2 font-mono text-xs sm:text-sm">
+              <label for="email" class="text-slate-200 font-bold block">Tu Correo Electrónico</label>
               <input
                 type="email"
                 id="email"
                 required
                 placeholder="nombre@empresa.com"
-                class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-xs transition-colors"
+                class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-sm transition-colors"
               />
             </div>
           </div>
 
-          <div class="space-y-1.5 font-mono text-xs">
-            <label for="subject" class="text-slate-300 block">Asunto o Motivo de Consulta</label>
+          <div class="space-y-2 font-mono text-xs sm:text-sm">
+            <label for="subject" class="text-slate-200 font-bold block">Asunto o Motivo de Consulta</label>
             <select
               id="subject"
-              class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-xs transition-colors"
+              class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-sm transition-colors"
             >
               <option value="Consultoría SAP S/4HANA (MM, PS, FICO)">Consultoría SAP S/4HANA (MM, PS, FICO)</option>
               <option value="Proyecto de Automatización / Agentes con IA">Proyecto de Automatización / Agentes con IA</option>
@@ -140,37 +140,37 @@ import { profile } from '../data/profile';
             </select>
           </div>
 
-          <div class="space-y-1.5 font-mono text-xs">
-            <label for="message" class="text-slate-300 block">Mensaje o Requerimiento</label>
+          <div class="space-y-2 font-mono text-xs sm:text-sm">
+            <label for="message" class="text-slate-200 font-bold block">Mensaje o Requerimiento</label>
             <textarea
               id="message"
               rows="4"
               required
               placeholder="Cuéntame sobre el alcance del proyecto, timeline o perfil requerido..."
-              class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-xs transition-colors resize-none"
+              class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-white/10 text-white outline-none focus:border-cyan-400 text-sm transition-colors resize-none"
             ></textarea>
           </div>
 
           <!-- Submit Button -->
           <button
             type="submit"
-            class="w-full py-3.5 rounded-2xl text-xs sm:text-sm font-black font-mono text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-white shadow-neon-cyan transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
+            class="w-full py-4 rounded-2xl text-sm font-black font-mono text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-white shadow-neon-cyan transition-all duration-300 active:scale-95 flex items-center justify-center gap-2.5"
           >
             <span>ENVIAR MENSAJE DIRECTO</span>
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
 
-          <p class="text-[11px] font-mono text-slate-400 text-center pt-1">
+          <p class="text-xs font-mono text-slate-300 text-center pt-1">
             🔒 Tu mensaje será despachado de forma segura y directa a ejuniorfloress@gmail.com
           </p>
         </form>
 
         <!-- Notification Toast -->
-        <div id="contact-toast" class="hidden mt-4 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 font-mono text-xs flex items-center gap-3">
-          <span class="text-lg">✓</span>
+        <div id="contact-toast" class="hidden mt-4 p-4 rounded-2xl bg-emerald-950/90 border border-emerald-500/60 text-emerald-200 font-mono text-xs sm:text-sm flex items-center gap-3">
+          <span class="text-xl">✓</span>
           <div>
-            <span class="font-bold block">¡Mensaje preparado exitosamente!</span>
-            <span class="text-slate-300 text-[11px]">Se abrirá tu cliente de correo para confirmar el envío.</span>
+            <span class="font-bold block text-white">¡Mensaje preparado exitosamente!</span>
+            <span class="text-slate-200 text-xs">Se abrirá tu cliente de correo para confirmar el envío directo.</span>
           </div>
         </div>
 

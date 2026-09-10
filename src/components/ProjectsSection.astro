@@ -1,10 +1,10 @@
 ---
-// ProjectsSection.astro - Filterable Showcase for RIA, CapeSync, SAP Solutions and Engineering
-import { projects } from '../data/projects';
+// ProjectsSection.astro - Showcase for RIA (Capstone 1st Place) and the 6 Selected Projects
+import { flagshipProject, projects } from '../data/projects';
 ---
 
 <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-  <div class="max-w-7xl mx-auto space-y-12">
+  <div class="max-w-7xl mx-auto space-y-14">
     
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -16,290 +16,222 @@ import { projects } from '../data/projects';
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight">
           Proyectos <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-cyan-300 to-purple-400">Destacados</span>
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300/80 font-normal">
-          Desde el proyecto ganador del 1er Lugar Capstone en USIL (RIA) y plataformas sociales activas como CapeSync, hasta pipelines de IA corporativos y proyectos en GitHub.
+        <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+          Desde el proyecto galardonado con el 1er Lugar en el Concurso Capstone de la USIL (RIA) hasta plataformas activas de impacto social y repositorios en GitHub.
         </p>
       </div>
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap items-center gap-2 font-mono text-xs" id="project-filters">
-        <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl bg-cyan-400 text-slate-950 font-bold shadow-neon-cyan transition-all">
+      <div class="flex flex-wrap items-center gap-2 font-mono text-xs sm:text-sm" id="project-filters">
+        <button data-filter="all" class="filter-btn active px-4 py-2.5 rounded-xl bg-cyan-400 text-slate-950 font-bold shadow-neon-cyan transition-all">
           Todos ({projects.length})
         </button>
-        <button data-filter="Flagship" class="filter-btn px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-amber-400/50 transition-all">
-          🏆 RIA (Capstone)
+        <button data-filter="Social ERP" class="filter-btn px-4 py-2.5 rounded-xl glass-panel text-slate-200 hover:text-white hover:border-cyan-400/50 transition-all font-semibold">
+          ❤️ Voluntariado
         </button>
-        <button data-filter="Social ERP" class="filter-btn px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-cyan-400/50 transition-all">
-          ❤️ CapeSync
-        </button>
-        <button data-filter="SAP & AI" class="filter-btn px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-purple-400/50 transition-all">
+        <button data-filter="SAP & AI" class="filter-btn px-4 py-2.5 rounded-xl glass-panel text-slate-200 hover:text-white hover:border-purple-400/50 transition-all font-semibold">
           ⚡ SAP & IA
         </button>
-        <button data-filter="engineering" class="filter-btn px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-emerald-400/50 transition-all">
-          📦 Open Source
+        <button data-filter="Fullstack" class="filter-btn px-4 py-2.5 rounded-xl glass-panel text-slate-200 hover:text-white hover:border-emerald-400/50 transition-all font-semibold">
+          🌐 Fullstack
+        </button>
+        <button data-filter="Data Science" class="filter-btn px-4 py-2.5 rounded-xl glass-panel text-slate-200 hover:text-white hover:border-amber-400/50 transition-all font-semibold">
+          📊 Data & ML
         </button>
       </div>
     </div>
 
-    <!-- Featured Spotlight: RIA & CapeSync (Top Row) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      
-      <!-- RIA Spotlight Card (7 cols) -->
-      {projects.filter(p => p.id === 'ria-project').map(proj => (
-        <div class="lg:col-span-7 glass-panel rounded-3xl overflow-hidden border border-amber-500/40 hover:border-amber-400 transition-all duration-500 shadow-neon-gold/20 group flex flex-col justify-between" data-category={proj.category}>
+    <!-- 1. GRAND SPOTLIGHT: PROYECTO RIA (1er Lugar Capstone USIL) -->
+    <div class="glass-panel rounded-3xl overflow-hidden border-2 border-amber-500/50 hover:border-amber-400 transition-all duration-500 shadow-neon-gold/30 group">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+        
+        <!-- Left: Real Photo / Screenshot -->
+        <div class="lg:col-span-6 relative h-72 sm:h-96 lg:h-full min-h-[320px] overflow-hidden bg-slate-950">
+          <img
+            src={flagshipProject.image}
+            alt={flagshipProject.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-deep-obsidian via-transparent to-transparent"></div>
           
-          <div class="space-y-4">
-            <!-- Image & Badge Container -->
-            <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
-              <img
-                src={proj.image}
-                alt={proj.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-deep-obsidian via-transparent to-transparent"></div>
-              
-              <!-- Award Tag -->
-              <div class="absolute top-4 left-4">
-                <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-black bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/40 flex items-center gap-1.5 uppercase tracking-wider">
-                  <span>🏆</span> {proj.awardBadge}
-                </span>
-              </div>
-
-              <div class="absolute bottom-4 left-4 right-4">
-                <span class="text-[11px] font-mono font-bold text-amber-300 uppercase tracking-widest block">Proyecto Estrella de Titulación</span>
-                <h3 class="text-2xl sm:text-3xl font-black text-white font-display leading-tight">{proj.title}</h3>
-              </div>
-            </div>
-
-            <!-- Content Body -->
-            <div class="p-6 sm:p-7 space-y-4 pt-0">
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                {proj.description}
-              </p>
-
-              <!-- Highlight Bullets -->
-              <ul class="space-y-2 text-xs text-slate-300/90 font-mono">
-                {proj.features.slice(0, 3).map(f => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-amber-400 text-sm">▹</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <!-- Metrics -->
-              {proj.metrics && (
-                <div class="grid grid-cols-3 gap-2 py-2 border-y border-white/10 font-mono text-center">
-                  {proj.metrics.map(m => (
-                    <div class="p-2 rounded-xl bg-white/[0.03]">
-                      <span class="block text-sm sm:text-base font-black text-amber-400">{m.value}</span>
-                      <span class="block text-[9px] text-slate-400 uppercase">{m.label}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <!-- Tech Stack Tags -->
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                {proj.techStack.map(t => (
-                  <span class="text-[10px] font-mono px-2.5 py-1 rounded-lg bg-amber-950/40 text-amber-200 border border-amber-800/40">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div class="absolute top-4 left-4">
+            <span class="px-4 py-1.5 rounded-full text-xs font-mono font-black bg-gradient-to-r from-amber-400 to-yellow-300 text-slate-950 shadow-lg shadow-amber-500/40 flex items-center gap-2 uppercase tracking-wider">
+              <span>🏆</span> {flagshipProject.awardBadge}
+            </span>
           </div>
 
-          <!-- Bottom Actions -->
-          <div class="p-6 sm:p-7 pt-0 flex flex-wrap items-center gap-3">
-            {proj.demoUrl && (
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs font-mono font-bold text-amber-300 uppercase tracking-widest block mb-1">PROYECTO INSIGNIA DE TITULACIÓN</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-white font-display leading-tight">{flagshipProject.title}</h3>
+          </div>
+        </div>
+
+        <!-- Right: Technical Details & Description -->
+        <div class="lg:col-span-6 p-6 sm:p-8 lg:p-10 space-y-5">
+          <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+            {flagshipProject.description}
+          </p>
+
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-200 font-mono">
+            {flagshipProject.features.map(f => (
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 text-base font-bold">▹</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Metrics Row -->
+          {flagshipProject.metrics && (
+            <div class="grid grid-cols-3 gap-3 py-3 border-y border-white/10 font-mono text-center">
+              {flagshipProject.metrics.map(m => (
+                <div class="p-2.5 rounded-xl bg-white/[0.04]">
+                  <span class="block text-base sm:text-lg font-black text-amber-400">{m.value}</span>
+                  <span class="block text-xs text-slate-300 uppercase font-semibold">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <!-- Tech Stack -->
+          <div class="flex flex-wrap gap-2">
+            {flagshipProject.techStack.map(t => (
+              <span class="text-xs font-mono px-3 py-1 rounded-lg bg-amber-950/50 text-amber-200 border border-amber-800/50 font-semibold">
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <!-- Actions -->
+          <div class="pt-3 flex flex-wrap items-center gap-3">
+            {flagshipProject.demoUrl && (
               <a
-                href={proj.demoUrl}
+                href={flagshipProject.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-amber-400 text-slate-950 hover:bg-white transition-all duration-200 shadow-neon-gold flex items-center gap-1.5"
+                class="px-6 py-3 rounded-xl text-xs sm:text-sm font-mono font-bold bg-amber-400 text-slate-950 hover:bg-white transition-all duration-200 shadow-neon-gold flex items-center gap-2"
               >
-                <span>Ver Caso de Estudio</span>
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                <span>Ver Caso Completo</span>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
               </a>
             )}
             <button
-              class="px-4 py-2.5 rounded-xl text-xs font-mono font-bold text-slate-300 hover:text-white glass-panel border border-white/10 hover:border-amber-400/40 transition-all open-ria-modal-btn"
+              class="px-5 py-3 rounded-xl text-xs sm:text-sm font-mono font-bold text-slate-200 hover:text-white glass-panel border border-white/10 hover:border-amber-400/50 transition-all open-ria-modal-btn"
             >
-              Arquitectura Técnica 🔍
+              Arquitectura de Agentes 🔍
             </button>
           </div>
-
         </div>
-      ))}
 
-      <!-- CapeSync Spotlight Card (5 cols) -->
-      {projects.filter(p => p.id === 'capesync').map(proj => (
-        <div class="lg:col-span-5 glass-panel rounded-3xl overflow-hidden border border-cyan-500/40 hover:border-cyan-400 transition-all duration-500 shadow-neon-cyan/20 group flex flex-col justify-between" data-category={proj.category}>
-          
-          <div class="space-y-4">
-            <!-- Image & Badge Container -->
-            <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
-              <img
-                src={proj.image}
-                alt={proj.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-deep-obsidian via-transparent to-transparent"></div>
+      </div>
+    </div>
 
-              <!-- Top Left Logo Badge -->
-              <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-cyan-400/40">
-                <img src={proj.logo} alt="CapeSync Logo" class="w-5 h-5 rounded-full object-cover" />
-                <span class="text-xs font-mono font-black text-cyan-300">CapeSync USIL</span>
-              </div>
+    <!-- 2. GRID OF EXACTLY 6 CURATED PROJECTS (2x3 or 3x2) -->
+    <div>
+      <div class="flex items-center justify-between pb-6">
+        <h3 class="text-xl sm:text-2xl font-black text-white font-display flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+          <span>Proyectos en Producción, Corporativos & GitHub (6)</span>
+        </h3>
+        <span class="text-xs font-mono text-cyan-300 hidden sm:inline">6 Proyectos Seleccionados</span>
+      </div>
 
-              <div class="absolute top-4 right-4">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> En Producción
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        {projects.map(proj => (
+          <div
+            class="project-item glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group space-y-5"
+            data-category={proj.category}
+          >
+            <div class="space-y-4">
+              
+              <!-- Top Row: Category & Badges -->
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 uppercase tracking-wide">
+                  {proj.category}
                 </span>
+
+                {proj.isPrivateCode ? (
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                    {proj.privateCodeBadge}
+                  </span>
+                ) : proj.awardBadge ? (
+                  <span class="text-xs font-mono font-bold text-amber-300">
+                    {proj.awardBadge}
+                  </span>
+                ) : null}
               </div>
 
-              <div class="absolute bottom-4 left-4 right-4">
-                <span class="text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-widest block">Capellanía & Voluntariado</span>
-                <h3 class="text-xl sm:text-2xl font-black text-white font-display leading-tight">{proj.title}</h3>
+              <!-- Project Title & Tagline -->
+              <div>
+                <h4 class="text-xl font-black text-white font-display group-hover:text-cyan-300 transition-colors leading-snug">
+                  {proj.title}
+                </h4>
+                <p class="text-xs sm:text-sm font-mono text-cyan-400/90 font-medium mt-1">
+                  {proj.tagline}
+                </p>
               </div>
-            </div>
 
-            <!-- Content Body -->
-            <div class="p-6 sm:p-7 space-y-4 pt-0">
-              <p class="text-xs text-slate-300 leading-relaxed font-normal">
+              <!-- Project Description (Larger text) -->
+              <p class="text-sm text-slate-200 leading-relaxed">
                 {proj.description}
               </p>
 
-              <!-- Highlight Bullets -->
-              <ul class="space-y-2 text-xs text-slate-300/90 font-mono">
-                {proj.features.slice(0, 3).map(f => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-cyan-400 text-sm">▹</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <!-- Metrics -->
+              <!-- Metrics if any -->
               {proj.metrics && (
                 <div class="grid grid-cols-3 gap-2 py-2 border-y border-white/10 font-mono text-center">
                   {proj.metrics.map(m => (
-                    <div class="p-2 rounded-xl bg-white/[0.03]">
-                      <span class="block text-sm font-black text-cyan-400">{m.value}</span>
-                      <span class="block text-[8px] text-slate-400 uppercase">{m.label}</span>
+                    <div class="p-2 rounded-xl bg-white/[0.03] border border-white/5">
+                      <span class="block text-sm sm:text-base font-black text-cyan-400">{m.value}</span>
+                      <span class="block text-xs text-slate-300 uppercase font-semibold">{m.label}</span>
                     </div>
                   ))}
                 </div>
               )}
 
-              <!-- Tech Stack Tags -->
-              <div class="flex flex-wrap gap-1.5 pt-1">
+              <!-- Tech Stack Chips (Readable) -->
+              <div class="flex flex-wrap gap-1.5 pt-2">
                 {proj.techStack.map(t => (
-                  <span class="text-[10px] font-mono px-2 py-0.5 rounded-lg bg-cyan-950/40 text-cyan-200 border border-cyan-800/40">
+                  <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-slate-200 border border-white/10 font-medium">
                     {t}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
 
-          <!-- Bottom Actions -->
-          <div class="p-6 sm:p-7 pt-0 flex items-center gap-3">
-            {proj.demoUrl && (
-              <a
-                href={proj.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full text-center px-5 py-3 rounded-xl text-xs font-mono font-bold bg-cyan-400 text-slate-950 hover:bg-white transition-all duration-200 shadow-neon-cyan flex items-center justify-center gap-2"
-              >
-                <span>Abrir Plataforma en Vivo</span>
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-            )}
-          </div>
-
-        </div>
-      ))}
-
-    </div>
-
-    <!-- Secondary Grid: SAP AI Pipeline & Engineering Projects -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-      {projects.filter(p => p.id !== 'ria-project' && p.id !== 'capesync').map(proj => (
-        <div
-          class="project-item glass-panel glass-panel-hover rounded-3xl p-6 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group space-y-4"
-          data-category={proj.category}
-        >
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30">
-                {proj.category}
-              </span>
-              {proj.awardBadge && (
-                <span class="text-[10px] font-mono font-bold text-amber-400">
-                  {proj.awardBadge}
+            <!-- Bottom Actions / Links -->
+            <div class="pt-5 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-mono">
+              {proj.githubUrl && (
+                <a
+                  href={proj.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-white border border-white/10 hover:border-cyan-400/40 font-bold transition-all"
+                >
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  <span>Ver en GitHub</span>
+                </a>
+              )}
+              {proj.demoUrl && (
+                <a
+                  href={proj.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-cyan-400 text-slate-950 font-bold hover:bg-white transition-all shadow-neon-cyan ml-auto"
+                >
+                  <span>Abrir Demo</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                </a>
+              )}
+              {proj.isPrivateCode && (
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-300 font-mono italic ml-auto">
+                  <span>💼</span> Despliegue en SEIDOR
                 </span>
               )}
             </div>
 
-            <h3 class="text-lg font-bold text-white font-display group-hover:text-cyan-300 transition-colors">
-              {proj.title}
-            </h3>
-
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">
-              {proj.description}
-            </p>
-
-            <!-- Metrics if any -->
-            {proj.metrics && (
-              <div class="grid grid-cols-2 gap-2 pt-2 font-mono text-center">
-                {proj.metrics.map(m => (
-                  <div class="p-2 rounded-xl bg-white/[0.02] border border-white/5">
-                    <span class="block text-xs font-black text-cyan-400">{m.value}</span>
-                    <span class="block text-[8px] text-slate-400 uppercase">{m.label}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <!-- Tech Stack -->
-            <div class="flex flex-wrap gap-1 pt-2">
-              {proj.techStack.map(t => (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10">
-                  {t}
-                </span>
-              ))}
-            </div>
           </div>
-
-          <!-- Links -->
-          <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
-            {proj.githubUrl && (
-              <a
-                href={proj.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-cyan-400 hover:text-white transition-colors"
-              >
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>Código en GitHub</span>
-              </a>
-            )}
-            {proj.demoUrl && (
-              <a
-                href={proj.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-amber-400 hover:text-white transition-colors"
-              >
-                <span>Demo en Vivo</span>
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-            )}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
   </div>
@@ -307,21 +239,21 @@ import { projects } from '../data/projects';
   <!-- Modal for RIA Architecture Deep-Dive -->
   <div id="ria-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
     <div class="glass-panel rounded-3xl p-6 sm:p-8 max-w-2xl w-full border border-amber-500/50 space-y-6 relative shadow-2xl">
-      <button id="close-ria-modal-btn" class="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+      <button id="close-ria-modal-btn" class="absolute top-4 right-4 p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors text-base font-bold">
         ✕
       </button>
 
       <div class="space-y-2">
-        <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">Detalle de Ingeniería • USIL Capstone</span>
-        <h3 class="text-2xl font-black text-white font-display">Arquitectura del Proyecto RIA (Reactive Intelligent Agent)</h3>
+        <span class="text-xs sm:text-sm font-mono font-bold text-amber-400 uppercase tracking-wider">Detalle de Ingeniería • USIL Capstone</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-white font-display">Arquitectura del Proyecto RIA (Reactive Intelligent Agent)</h3>
       </div>
 
-      <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+      <div class="space-y-4 text-sm text-slate-200 leading-relaxed font-sans">
         <p>
           RIA fue concebido para resolver un desafío pedagógico crítico: <strong>¿cómo enseñar conceptos abstractos de Inteligencia Artificial y agentes autónomos a estudiantes de forma intuitiva?</strong>
         </p>
-        <div class="p-4 rounded-2xl bg-amber-950/30 border border-amber-500/30 space-y-2 font-mono text-xs text-amber-200">
-          <div class="font-bold text-white">Componentes Clave de la Arquitectura:</div>
+        <div class="p-5 rounded-2xl bg-amber-950/40 border border-amber-500/40 space-y-2.5 font-mono text-xs sm:text-sm text-amber-200">
+          <div class="font-bold text-white text-sm">Componentes Clave de la Arquitectura:</div>
           <div>1. <strong>Motor de Agente Reactivo:</strong> Lógica de percepción, deliberación y acción en ciclos de &lt;16ms.</div>
           <div>2. <strong>Supervised Learning Playfield:</strong> El usuario alimenta datasets y visualiza en tiempo real la adaptación de la frontera de decisión del agente.</div>
           <div>3. <strong>Desacoplamiento Lógico/Visual:</strong> El core algorítmico fue construido en Python/C# conectado al entorno interactivo en Unity 2D.</div>
@@ -331,7 +263,7 @@ import { projects } from '../data/projects';
         </p>
       </div>
 
-      <div class="flex items-center justify-end gap-3 pt-2 font-mono text-xs">
+      <div class="flex items-center justify-end gap-3 pt-2 font-mono text-xs sm:text-sm">
         <a
           href="https://edwinflores19.github.io/PORTAFOLIO-EDWIN-FLORES-2025-2/#ria-project"
           target="_blank"
@@ -354,24 +286,16 @@ import { projects } from '../data/projects';
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => {
         b.classList.remove('bg-cyan-400', 'text-slate-950', 'shadow-neon-cyan', 'active');
-        b.classList.add('glass-panel', 'text-slate-300');
+        b.classList.add('glass-panel', 'text-slate-200');
       });
-      btn.classList.remove('glass-panel', 'text-slate-300');
+      btn.classList.remove('glass-panel', 'text-slate-200');
       btn.classList.add('bg-cyan-400', 'text-slate-950', 'shadow-neon-cyan', 'active');
 
       const filter = btn.getAttribute('data-filter');
 
       projectItems.forEach(item => {
         const cat = item.getAttribute('data-category');
-        if (filter === 'all') {
-          (item as HTMLElement).style.display = 'flex';
-        } else if (filter === 'engineering') {
-          if (cat === 'Data Science' || cat === 'Engineering') {
-            (item as HTMLElement).style.display = 'flex';
-          } else {
-            (item as HTMLElement).style.display = 'none';
-          }
-        } else if (cat === filter) {
+        if (filter === 'all' || cat === filter) {
           (item as HTMLElement).style.display = 'flex';
         } else {
           (item as HTMLElement).style.display = 'none';

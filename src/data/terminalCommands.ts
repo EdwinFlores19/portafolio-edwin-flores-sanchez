@@ -8,8 +8,8 @@ export const terminalCommands: Record<string, string | CommandResponse> = {
   • whoami          - ¿Quién es Edwin Flores?
   • sap             - Especialización en SAP S/4HANA & Clean Core
   • ai              - Agentes Autónomos, Claude, Gemini, ChatGPT y pipelines ETL
-  • projects        - Proyecto RIA (1er Lugar Capstone), CapeSync y Open Source
-  • experience      - Trayectoria en Seidor Consulting y +15 proyectos
+  • projects        - Proyecto RIA (1er Lugar Capstone), CapeSync y Repositorios
+  • experience      - Trayectoria en Seidor Consulting y +17 proyectos
   • certs           - Certificaciones oficiales SAP, Google Skills y Claude
   • contact         - Datos de contacto directo y WhatsApp
   • hire            - Propuesta de valor ejecutiva para reclutadores
@@ -39,16 +39,26 @@ Filosofía: "Construyendo el puente entre la Arquitectura Empresarial SAP y la I
 • OpenAI ChatGPT: Workflows con Function Calling y asistentes contextuales.
 • SAP Joule: Adopción e integración de IA generativa nativa en SAP Cloud ERP.`,
 
-  projects: `PROYECTOS DESTACADOS:
-1. RIA (Reactive Intelligent Agent) [🏆 1er Lugar Capstone USIL 2025]
+  projects: `PROYECTOS DESTACADOS & GITHUB (6 PROYECTOS):
+1. 🏆 RIA (Reactive Intelligent Agent) [1er Lugar Capstone USIL 2025]
    Simulador Serious Gaming de IA con agentes reactivos autónomos en Unity + Python.
 2. CapeSync — Plataforma de Voluntariado & ERP [Capellanía USIL]
    PWA offline-first con carnet digital QR y ERP para Aldea Westfalia.
    Demo: https://capellania-usil-voluntariado-2026.vercel.app/
-3. Pipeline ETL con IA para Upgrade S/4HANA [Clínica Internacional]
-   Redujo 80% del tiempo de migración para millones de registros.
-4. House Prices Dashboard [Streamlit + Scikit-Learn]
-5. Simulador de Billar 2D [Pygame Physics Engine]`,
+3. Plantillas de Migración de Data & Suite ETL con IA [🔒 Código Privado]
+   Automatización de carga masiva para Clínica Internacional (-80% de tiempos).
+4. SportMatch Connect [TypeScript]
+   Plataforma comunitaria de match deportivo en tiempo real.
+   Repo: https://github.com/jojiz29/sportmatch-connect
+5. Puka Power E-Commerce Web [TypeScript]
+   Tienda online interactiva con catálogo y carrito dinámico.
+   Repo: https://github.com/EdwinFlores19/puka-power-pagweb-ecommerce
+6. Migración de MYPES con ETL de IA [ProyectoFinalDIAE Grupo 2]
+   Transformación digital y analítica avanzada para microempresas.
+   Repo: https://github.com/danieliriartehub/ProyectoFinalDIAE-Grupo2
+7. MVP PrediRent 2025 — Predicción de Rentas [JavaScript]
+   Conexión de arrendadores e inquilinos con tasación predictiva.
+   Repo: https://github.com/EdwinFlores19/MVP-PREDIRENT-2025`,
 
   experience: `TRAYECTORIA PROFESIONAL:
 • SEIDOR Consulting (Feb 2024 – Actualidad)

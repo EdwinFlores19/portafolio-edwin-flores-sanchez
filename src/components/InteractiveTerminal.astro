@@ -7,24 +7,26 @@ import { terminalCommands } from '../data/terminalCommands';
 <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
   <button
     id="terminal-floating-trigger"
-    class="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl glass-panel border border-cyan-400/50 text-cyan-300 font-mono text-xs font-bold shadow-neon-cyan/40 hover:bg-cyan-950/70 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 group backdrop-blur-2xl"
+    class="px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl glass-panel border border-cyan-400/50 text-cyan-300 font-mono text-xs font-bold shadow-neon-cyan/40 hover:bg-cyan-950/70 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 group backdrop-blur-2xl"
     title="Abrir Consola Terminal EdwinOS"
   >
     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
     <span class="text-cyan-400 font-black">>_</span>
-    <span class="hidden sm:inline">EdwinOS v2.6.0</span>
-    <span class="px-1.5 py-0.5 rounded bg-cyan-900/50 text-[10px] text-cyan-200 border border-cyan-700/40">CLI</span>
+    <span class="hidden xs:inline sm:inline">EdwinOS</span>
+    <span class="xs:hidden">CLI</span>
+    <span class="hidden md:inline text-[11px] text-slate-400 font-normal">v2.6.0</span>
+    <span class="hidden sm:inline px-1.5 py-0.5 rounded bg-cyan-900/50 text-[10px] text-cyan-200 border border-cyan-700/40">CLI</span>
   </button>
 </div>
 
 <!-- Modal / Drawer Terminal Window -->
 <div
   id="edwin-terminal-modal"
-  class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-black/85 backdrop-blur-md hidden"
+  class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md hidden"
   aria-modal="true"
   role="dialog"
 >
-  <div class="glass-panel rounded-2xl sm:rounded-3xl border border-cyan-500/50 max-w-3xl w-full h-[90vh] sm:h-[540px] max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden bg-slate-950/95 font-mono">
+  <div class="glass-panel rounded-2xl sm:rounded-3xl border border-cyan-500/50 max-w-3xl w-full h-[88vh] sm:h-[540px] max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden bg-slate-950/95 font-mono">
     
     <!-- Top Bar: Window Controls & Title -->
     <div class="px-4 py-3 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
@@ -47,7 +49,7 @@ import { terminalCommands } from '../data/terminalCommands';
     </div>
 
     <!-- Terminal Output Screen -->
-    <div id="terminal-screen" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-200">
+    <div id="terminal-screen" class="flex-1 p-3.5 sm:p-4 overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-200">
       <div class="text-cyan-400 font-bold">
         ╔══════════════════════════════════════════════════════════════════╗<br/>
         ║   EDWIN JUNIOR FLORES SANCHEZ — TERMINAL INTERACTIVO v2.6.0      ║<br/>
@@ -62,36 +64,36 @@ import { terminalCommands } from '../data/terminalCommands';
       <div id="terminal-history" class="space-y-3"></div>
     </div>
 
-    <!-- Quick Action Command Chips -->
-    <div class="px-4 py-2 bg-slate-900/50 border-t border-white/5 flex flex-wrap items-center gap-1.5 overflow-x-auto text-[11px]">
-      <span class="text-slate-400 text-[10px] uppercase mr-1">Comandos:</span>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="whoami">whoami</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="sap">sap</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="ai">ai</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="cleancore">cleancore</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="projects">projects</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="experience">experience</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="hire">hire ⭐</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-amber-950/40 hover:bg-amber-900/60 text-amber-300 border border-amber-500/40 transition-all" data-cmd="joke">joke 😄</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="coffee">coffee ☕</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="contact">contact</button>
-      <button class="term-chip px-2.5 py-1 rounded-md bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/40 transition-all" data-cmd="matrix">matrix 🕶️</button>
+    <!-- Quick Action Command Chips (Smooth scrollable on touch devices) -->
+    <div class="px-3 sm:px-4 py-2 bg-slate-900/60 border-t border-white/5 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-[11px] whitespace-nowrap">
+      <span class="text-slate-400 text-[10px] uppercase mr-1 shrink-0">Comandos:</span>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="whoami">whoami</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="sap">sap</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="ai">ai</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="cleancore">cleancore</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="projects">projects</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="experience">experience</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="hire">hire ⭐</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-amber-950/40 hover:bg-amber-900/60 text-amber-300 border border-amber-500/40 transition-all" data-cmd="joke">joke 😄</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="coffee">coffee ☕</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400/40 transition-all" data-cmd="contact">contact</button>
+      <button class="term-chip shrink-0 px-2.5 py-1 rounded-md bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/40 transition-all" data-cmd="matrix">matrix 🕶️</button>
     </div>
 
     <!-- Input Line -->
-    <div class="p-3 bg-slate-950 border-t border-white/10 flex items-center gap-2">
-      <span class="text-cyan-400 font-black">>_</span>
+    <div class="p-2.5 sm:p-3 bg-slate-950 border-t border-white/10 flex items-center gap-2">
+      <span class="text-cyan-400 font-black shrink-0">>_</span>
       <input
         type="text"
         id="terminal-input"
         placeholder="Escribe un comando ('help', 'sap', 'hire', etc.) y presiona Enter..."
-        class="flex-1 bg-transparent text-white font-mono text-xs outline-none placeholder:text-slate-500 caret-cyan-400"
+        class="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm outline-none placeholder:text-slate-500 caret-cyan-400 min-w-0"
         autocomplete="off"
         spellcheck="false"
       />
       <button
         id="terminal-submit-btn"
-        class="px-3 py-1 rounded-lg bg-cyan-400 text-slate-950 font-bold text-xs hover:bg-white transition-colors"
+        class="shrink-0 px-3 py-1.5 rounded-lg bg-cyan-400 text-slate-950 font-bold text-xs hover:bg-white transition-colors active:scale-95"
       >
         Ejecutar
       </button>

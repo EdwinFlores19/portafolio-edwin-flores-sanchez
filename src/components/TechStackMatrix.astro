@@ -3,7 +3,7 @@
 import { skillCategories } from '../data/skills';
 ---
 
-<section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+<section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
   <div class="max-w-7xl mx-auto space-y-12">
     
     <!-- Section Header -->
@@ -21,9 +21,9 @@ import { skillCategories } from '../data/skills';
     </div>
 
     <!-- Categories Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
       {skillCategories.map(cat => (
-        <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 space-y-6">
+        <div class="glass-panel rounded-3xl p-5 sm:p-7 lg:p-8 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 space-y-6">
           
           <div class="border-b border-white/10 pb-4">
             <h3 class="text-xl sm:text-2xl font-black text-white font-display flex items-center gap-2.5">
@@ -37,18 +37,18 @@ import { skillCategories } from '../data/skills';
           <div class="space-y-4">
             {cat.skills.map(s => (
               <div class="space-y-2 group">
-                <div class="flex items-center justify-between text-xs sm:text-sm font-mono">
-                  <div class="flex items-center gap-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 text-xs sm:text-sm font-mono">
+                  <div class="flex flex-wrap items-center gap-2">
                     <span class="text-slate-100 group-hover:text-cyan-300 transition-colors font-semibold">
                       {s.name}
                     </span>
                     {s.tag && (
-                      <span class="text-xs px-2.5 py-0.5 rounded-md bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 font-bold">
+                      <span class="text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 rounded-md bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 font-bold shrink-0">
                         {s.tag}
                       </span>
                     )}
                   </div>
-                  <span class="text-cyan-400 group-hover:text-white transition-colors font-black">
+                  <span class="text-cyan-400 group-hover:text-white transition-colors font-black shrink-0 ml-auto">
                     {s.level}%
                   </span>
                 </div>

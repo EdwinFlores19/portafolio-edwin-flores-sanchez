@@ -3,7 +3,7 @@
 import { certifications } from '../data/certifications';
 ---
 
-<section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+<section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
   <div class="max-w-7xl mx-auto space-y-12">
     
     <!-- Section Header -->
@@ -21,9 +21,9 @@ import { certifications } from '../data/certifications';
     </div>
 
     <!-- Badges Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
       {certifications.map(cert => (
-        <div class="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group space-y-5">
+        <div class="glass-panel glass-panel-hover rounded-3xl p-5 sm:p-6 lg:p-7 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group space-y-5">
           
           <div class="space-y-4">
             <!-- Header Row: Issuer Badge & Date -->
